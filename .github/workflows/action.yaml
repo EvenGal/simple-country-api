@@ -1,0 +1,25 @@
+name: My Test Project CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 21
+          cache: 'maven'
+
+      - name: Build and test weather-app
+        run: ./mvnw -B clean package
+
+      - name: Build docker image
+        run: docker build -t my-test-app:${{ github.sha }} .
