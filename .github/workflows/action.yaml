@@ -2,7 +2,11 @@ name: My Test Project CI
 
 on:
   pull_request:
+    paths-ignore:
+      - '.github/**'
   push:
+    paths-ignore:
+      - '.github/**'
     branches:
       - main
 jobs:
@@ -18,7 +22,7 @@ jobs:
           java-version: 21
           cache: 'maven'
 
-      - name: Build and test weather-app
+      - name: Build and test
         run: ./mvnw -B clean package
 
       - name: 'Login via Azure CLI'
