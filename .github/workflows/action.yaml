@@ -21,5 +21,8 @@ jobs:
       - name: Build and test weather-app
         run: ./mvnw -B clean package
 
-      - name: Build docker image
+      - name: Build Docker image
         run: docker build -t my-test-app:${{ github.sha }} .
+
+      - name: Push Docker image
+        run: docker push registryquarkus.azurecr.io/my-test-app:${{ github.sha }}
