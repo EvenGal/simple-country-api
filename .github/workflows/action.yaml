@@ -1,6 +1,9 @@
 name: Simple Country API CI/CD
 
 on:
+  workflow-dispatch:
+    branches:
+      - main
   pull_request:
     paths-ignore:
       - '.github/**'
@@ -9,12 +12,6 @@ on:
       - '.github/**'
     branches:
       - main
-  workflow-dispatch:
-    inputs:
-      run:
-        description: 'Run build'
-        required: true
-        default: ''
 
 jobs:
   build:
