@@ -10,6 +10,12 @@ on:
     branches:
       - main
   workflow-dispatch:
+    inputs:
+      run:
+        description: 'Run build'
+        required: true
+        default: ''
+
 jobs:
   build:
     runs-on: [ ubuntu-latest ]
