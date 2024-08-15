@@ -1,4 +1,4 @@
-name: My Test Project CI
+name: Simple Country API CI/CD
 
 on:
   pull_request:
