@@ -1,6 +1,5 @@
 package org.netcompany;
 
-import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

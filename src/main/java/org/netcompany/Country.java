@@ -14,10 +14,6 @@ public class Country extends PanacheEntityBase {
     public int population;
     public float gdpUsd;
 
-    public static Country findByName(String name) {
-        return find("name", name).firstResult();
-    }
-
     public static Country findByCode(int code) {
         return find("code", code).firstResult();
     }

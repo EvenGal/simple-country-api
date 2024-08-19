@@ -32,7 +32,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: 'Build and push image'
+      - name: Build and push image
         uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
@@ -42,7 +42,7 @@ jobs:
           docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-country-api:${{ github.sha }}
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/simple-country-api:${{ github.sha }}
 
-      - name: 'Deploy to Azure Container Instances'
+      - name: Deploy to Azure Container Instances
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: ${{ secrets.RESOURCE_GROUP }}
